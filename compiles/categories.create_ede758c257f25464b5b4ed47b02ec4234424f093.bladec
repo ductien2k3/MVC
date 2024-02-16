@@ -1,0 +1,22 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('content'); ?>
+<body>
+ <div class="container">
+ <h1>Thêm mới</h1>
+
+ <div class="row">
+ <form action="" method="POST">
+ <div class="mb-3 mt-3">
+ <label for="name" class="form-label">Name:</label>
+ <input type="text" class="form-control" id="name" required
+ placeholder="Enter name" name="name">
+ </div>
+ 
+ <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+ </div>
+ </div>
+
+</body>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.master'); } ?>

@@ -32,8 +32,8 @@
  </div>
  </div><!-- End Single Post Content -->
  </div>
+ <?php echo $this->runChild('components.sidebar', ['postTrending' => $postTrending , 'postPopular' => $postPopular]); ?>
  
- <?php echo $this->runChild('components.sidebar'); ?>
  </div>
  </div>
  </section>

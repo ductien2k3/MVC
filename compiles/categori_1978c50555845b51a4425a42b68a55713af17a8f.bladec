@@ -1,0 +1,58 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title'); ?>
+ Danh mục
+<?php $this->stopSection(); ?>
+<?php $this->startSection('content'); ?>
+ <section>
+ <div class="container">
+ <div class="row">
+
+ <div class="col-md-9" data-aos="fade-up">
+ <h3 class="category-title">Category: <?php echo \htmlentities($postByCategory[0]['category_name']??'', ENT_QUOTES, 'UTF-8', false); ?></h3>
+ <?php $__currentLoopData = $postByCategory; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $posts): $loop = $this->incrementLoopIndices();  ?>
+ <div class="d-md-flex post-entry-2 half">
+ <a href="/post/<?php echo \htmlentities($posts['id']??'', ENT_QUOTES, 'UTF-8', false); ?>" class="me-4 thumbnail">
+ <img src="<?php echo \htmlentities($posts['image']??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="" class="img-fluid">
+ </a>
+ <div>
+ <div class="post-meta"><span class="date"><?php echo \htmlentities($posts['category_name']??'', ENT_QUOTES, 'UTF-8', false); ?></span> <span
+ class="mx-1">&bullet;</span>
+ <span>Jul 5th '22</span>
+ </div>
+ <h3><a href="/post/<?php echo \htmlentities($posts['id']??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($posts['title']??'', ENT_QUOTES, 'UTF-8', false); ?></a></h3>
+ <p><?php echo \htmlentities($posts['excerpt']??'', ENT_QUOTES, 'UTF-8', false); ?></p>
+ <div class="d-flex align-items-center author">
+ <div class="photo"><img src="/assets/client/assets/img/person-2.jpg" alt=""
+ class="img-fluid">
+ </div>
+ <div class="name">
+ <h3 class="m-0 p-0">Wade Warren</h3>
+ </div>
+ </div>
+ </div>
+ </div>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ <div class="text-start py-4">
+ <div class="custom-pagination">
+ <a href="#" class="prev">Prevous</a>
+ <a href="#" class="active">1</a>
+ <a href="#">2</a>
+ <a href="#">3</a>
+ <a href="#">4</a>
+ <a href="#">5</a>
+ <a href="#" class="next">Next</a>
+ </div>
+ </div>
+ </div>
+
+ <?php echo $this->runChild('components.sidebar', ['postTrending' => $postTrending , 'postPopular' => $postPopular]); ?>
+ </div>
+
+ </div>
+ </div>
+ </section>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.master'); } ?>

@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    Post Create
+@endsection
 @section('content')
 <body>
     <div class="container">

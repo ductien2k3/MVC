@@ -1,4 +1,8 @@
-<?php echo $this->runChild('layouts.header'); ?>
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('title'); ?>
+ Categories Show
+<?php $this->stopSection(); ?>
+<?php $this->startSection('content'); ?>
 
 <body>
 
@@ -25,5 +29,6 @@
  </div>
 
 </body>
-<?php echo $this->runChild('layouts.footer'); ?>
+<?php $this->stopSection(); ?>
 </html>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.master'); } ?>

@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    User Create
+@endsection
 @section('content')
 
 <body>

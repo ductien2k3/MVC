@@ -1,31 +1,35 @@
 <?php
 
+
 namespace Acer\MvcoopVer2\Controllers\Client;
 
 use Acer\MvcoopVer2\Commons\Controller;
 use Acer\MvcoopVer2\Models\Post;
-class PostController extends Controller
+
+
+class CategoryController extends Controller
 {
     private Post $post;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->post = new Post;
     }
 
-    public function show($id) {
-        $post = $this->post->getByID($id);
+    public function showPosts($id)
+    {
         $postByCategory = $this->post->getPostByCategoryID($id);
         $postTrending = $this->post->getTrending();
         $postPopular = $this->post->getAll();
-        $this->post->incrementViewCount($id);
 
         return $this->renderViewClient(
-            'post-show',
+            'categori',
             [
-                'post' => $post,
+                'postByCategory' => $postByCategory,
                 'postTrending' => $postTrending,
                 'postPopular' => $postPopular
             ]
         );
     }
+    
 }

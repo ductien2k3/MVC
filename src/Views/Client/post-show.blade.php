@@ -30,8 +30,8 @@
                         </div>
                     </div><!-- End Single Post Content -->
                 </div>
+                @include('components.sidebar', ['postTrending' => $postTrending , 'postPopular' => $postPopular])
                 
-                @include('components.sidebar')
             </div>
         </div>
     </section>

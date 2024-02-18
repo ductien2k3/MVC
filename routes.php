@@ -8,12 +8,14 @@ use Acer\MvcoopVer2\Controllers\Admin\AuthenticateController;
 use Bramus\Router\Router;
 use Acer\MvcoopVer2\Controllers\Client\HomeController;
 use Acer\MvcoopVer2\Controllers\Client\PostController as ClientPostController;
+use Acer\MvcoopVer2\Controllers\Client\CategoryController as ClientCategoryController;
 // Create Router instance
 $router = new Router();
 
 // Define routes
 $router->get('/', HomeController::class . '@index');
 $router->get('/post/{id}', ClientPostController::class . '@show');
+$router->get('/categori/{id}', ClientCategoryController::class . '@showPosts');
 
 $router->match('GET|POST', '/auth/login' ,          AuthenticateController::class . '@login');
 

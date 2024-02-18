@@ -200,4 +200,60 @@ class Post extends Model
             die;
         }
     }
+
+    public function getPostByCategoryID($id)
+    {
+        try {
+            $sql = "SELECT posts.*, 
+                categories.name AS category_name,
+                categories.id AS cate_id
+                FROM posts
+                JOIN categories ON posts.category_id = categories.id
+                WHERE categories.id = :id";
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindParam(':id', $id);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (\Exception $e) {
+            echo 'ERROR: ' . $e->getMessage();
+            die;
+        }
+    }
+
+    public function getTrending()
+    {
+        try {
+            $sql = "SELECT posts.*, 
+                categories.name AS category_name
+                FROM posts
+                JOIN categories ON posts.category_id = categories.id
+                ORDER BY view DESC";
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (\Exception $e) {
+            echo 'ERROR: ' . $e->getMessage();
+            die;
+        }
+    }
+    public function incrementViewCount($id)
+    {
+        try {
+            $sql = "UPDATE posts SET view = view + 1 WHERE id = :id";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindParam(':id', $id);
+
+            $stmt->execute();
+        } catch (\Exception $e) {
+            echo 'ERROR: ' . $e->getMessage();
+            die;
+        }
+    }
 }

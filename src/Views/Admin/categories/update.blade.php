@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    Categories Update
+@endsection
 @section('content')
 
 <body>

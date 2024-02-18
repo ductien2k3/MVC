@@ -1,4 +1,7 @@
 <?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('title'); ?>
+ Categories Create
+<?php $this->stopSection(); ?>
 <?php $this->startSection('content'); ?>
 <body>
  <div class="container">

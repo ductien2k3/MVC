@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    User Show
+@endsection
 @section('content')
 
 <body>
